@@ -119,7 +119,7 @@
 		<div class="mb-4">
 			<h1 class="text-2xl font-semibold">Your Coin Address</h1>
 			<div class="break-all">
-				<p class="text-gray-600">{address}</p>
+				<p class="text-gray-600 select-all">{address}</p>
 			</div>
 		</div>
 		<div class="mb-4">

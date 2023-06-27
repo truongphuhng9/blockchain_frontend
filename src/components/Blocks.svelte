@@ -1,11 +1,11 @@
 <script>
-  import { navigate } from "svelte-routing";
+  import { goto } from '$app/navigation';
 
   export let blocks;
   export let refreshBlocks;
 
   const handleClick = (block) => {
-    console.log(block.hash)
+    goto(`/block/${block.hash}`);
   }
 
 </script>
