@@ -1,11 +1,22 @@
 <script>
-    export let blocks;
-    export let refreshBlocks;
-  </script>
+  import { navigate } from "svelte-routing";
+
+  export let blocks;
+  export let refreshBlocks;
+
+  const handleClick = (block) => {
+    console.log(block.hash)
+  }
+
+</script>
   
   <div class="flex flex-wrap">
     {#each blocks.slice(0, 3) as block}
-      <div class="block-card bg-gray-100 rounded-lg p-4 shadow-md mb-4 mr-4">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div 
+        class="block-card bg-gray-100 rounded-lg p-4 shadow-md mb-4 mr-4"
+        on:click={() => handleClick(block)}
+      >
         <h2 class="text-xl font-semibold mb-2">Block Number: {block.index}</h2>
         <p class="text-gray-600 mb-2">Timestamp: {block.timestamp}</p>
         <div class="break-all">
@@ -15,6 +26,7 @@
           <p class="text-gray-600 mb-4">Previous Hash: {block.previousHash}</p>
         </div>
         <p class="text-gray-600 mb-4">Timestamp: {block.timestamp}</p>
+        <p class="text-gray-600 mb-4">Diffculty: {block.difficulty}</p>
         <p class="text-gray-600 mb-4">Nonce: {block.nonce}</p>
       </div>
     {/each}
@@ -35,7 +47,7 @@
           </thead>
           <tbody>
             {#each blocks.slice(3) as block}
-              <tr>
+              <tr on:click={() => handleClick(block)}>
                 <td class="py-2">{block.index}</td>
                 <td class="py-2">{block.timestamp}</td>
                 <td class="py-2">{block.hash}</td>
