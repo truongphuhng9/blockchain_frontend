@@ -80,7 +80,7 @@
 
 	const mineTransaction = async () => {
 		let data = { address: receiver, amount: amount }
-		await fetch(`${httpHost}/mine-transaction`, {
+		await fetch(`${PUBLIC_BE_HOST}/mine-transaction`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
